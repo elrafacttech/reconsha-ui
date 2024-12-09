@@ -16,6 +16,12 @@ import Logo from '@/components/common/Logo';
 
 export default function SignupPage() {
     const [showPassword, setShowPassword] = useState(false);
+    const [companyName, setCompanyName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [country, setCountry] = useState("india");
+
+    const isFormValid = companyName.trim() && email.trim() && password.trim() && country;
 
     return (
         <div className="min-h-screen w-full mx-auto">
@@ -28,12 +34,26 @@ export default function SignupPage() {
                     </h1>
 
                     <div className="space-y-4">
+                    <div className="space-y-2">
+                            <Label htmlFor="name">Company name</Label>
+                            <Input
+                                placeholder="company name"
+                                id="name"
+                                type="name"
+                                value={companyName}
+                                onChange={(e) => setCompanyName(e.target.value)}
+                                required
+                            />
+                        </div>
+
                         <div className="space-y-2">
                             <Label htmlFor="email">Work email address</Label>
                             <Input
                                 placeholder="user@example.com"
                                 id="email"
                                 type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
                         </div>
@@ -45,6 +65,8 @@ export default function SignupPage() {
                                     id="password"
                                     type={showPassword ? 'text' : 'password'}
                                     placeholder="Password (8 or more characters)"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     required
                                 />
                                 <button
@@ -65,7 +87,7 @@ export default function SignupPage() {
 
                         <div className="space-y-2">
                             <Label htmlFor="country">Country</Label>
-                            <Select defaultValue="india">
+                            <Select value={country} onValueChange={setCountry}>
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select country" />
                                 </SelectTrigger>
@@ -109,7 +131,8 @@ export default function SignupPage() {
                                         to="/terms"
                                         className="text-primary underline"
                                     >
-                                        Reconsha Terms of Service
+                                        <span className="font-kanit">                                      
+                                        WorkRiches</span> Terms of Service
                                     </Link>
                                     , including the{' '}
                                     <Link
@@ -131,7 +154,9 @@ export default function SignupPage() {
                         </div>
 
                         <div className="flex justify-center w-full">
-                            <Button className="rounded-xl px-7">
+                            <Button className="rounded-xl px-7"
+                            disabled={!isFormValid}
+                            >
                                 Create my account
                             </Button>
                         </div>

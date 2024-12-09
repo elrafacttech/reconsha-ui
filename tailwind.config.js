@@ -6,6 +6,7 @@ export default {
         extend: {
             fontFamily: {
                 poppins: ['Poppins', 'sans-serif'],
+                kanit: ['Kanit', 'sans-serif'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
