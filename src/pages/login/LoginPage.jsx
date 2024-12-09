@@ -13,6 +13,7 @@ export default function LoginPage() {
     const [step, setStep] = useState('email');
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
+    const [password, setPassword] = useState("");
 
     const handleContinue = (e) => {
         e.preventDefault();
@@ -21,6 +22,15 @@ export default function LoginPage() {
             return;
         }
         setStep('password');
+    };
+    const handleLogin = (e) => {
+        e.preventDefault();
+        if (!password) {
+            setError("Password is required.");
+            return;
+        }
+        setError("");
+        console.log("Login successful", { email, password });
     };
 
     return (
@@ -36,14 +46,14 @@ export default function LoginPage() {
                                 className="space-y-6"
                             >
                                 <div className="text-center space-y-2">
-                                    <h1 className="text-2xl font-semibold">
-                                        Log in to Reconsha
+                                    <h1 className="text-2xl font-semibold font-kanit">
+                                     Log in to WorkRiches                                       
                                     </h1>
                                 </div>
 
                                 <div className="space-y-4">
                                     <div className="relative">
-                                        <User className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
+                                        <User className="absolute left-3 top-2 h-4 w-5 p-0 text-muted-foreground" />
                                         <Input
                                             placeholder="Username or Email"
                                             className={`pl-10 ${error ? 'focus-visible:ring-destructive' : ''}`}
@@ -76,7 +86,8 @@ export default function LoginPage() {
                                         </div>
                                         <div className="relative flex justify-center text-sm">
                                             <span className="bg-background px-2 text-muted-foreground">
-                                                Don't have an Reconsha account?
+                                                Don't have an <span className="font-kanit">                                      
+                                             WorkRiches</span> account?
                                             </span>
                                         </div>
                                     </div>
@@ -93,7 +104,7 @@ export default function LoginPage() {
                                 </div>
                             </form>
                         ) : (
-                            <form className="space-y-6">
+                            <form onSubmit={handleLogin} className="space-y-6">
                                 <div className="text-center space-y-2">
                                     <h1 className="text-2xl font-semibold">
                                         Welcome
@@ -105,14 +116,24 @@ export default function LoginPage() {
 
                                 <div className="space-y-4">
                                     <div className="relative">
-                                        <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
+                                        <Lock className="absolute left-3 top-2 h-4 w-5 p-0 text-muted-foreground" />
                                         <Input
                                             type="password"
                                             placeholder="Password"
-                                            value=""
+                                            value={password}
+                                            onChange={(e) => {
+                                                setPassword(e.target.value);
+                                                setError("");
+                                            }}
                                             className="pl-10"
                                         />
                                     </div>
+                                    {error && (
+                                        <p className="text-sm text-destructive flex items-center gap-2">
+                                            <span className="h-1 w-1 rounded-full bg-destructive" />
+                                            {error}
+                                        </p>
+                                    )}
 
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center space-x-2">
