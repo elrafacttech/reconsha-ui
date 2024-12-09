@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/select';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { Link } from 'react-router';
-import Logo from '@/components/common/Logo';
+import Logo from '@/components/common/logo/Logo';
 
 export default function SignupPage() {
     const [showPassword, setShowPassword] = useState(false);
