@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Link, useNavigate } from 'react-router';
-import Logo from '../../components/common/Logo';
+import Logo from '../../components/common/logo/Logo';
 
 export default function OnboardingPage() {
     const [userType, setUserType] = useState('');

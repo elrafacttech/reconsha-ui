@@ -18,7 +18,7 @@
         --card-foreground: 240 10% 3.9%;
         --popover: 0 0% 100%;
         --popover-foreground: 240 10% 3.9%;
-        --primary: 142.1 76.2% 36.3%;
+        --primary: 113.04 100% 27.06%;
         --primary-foreground: 355.7 100% 97.3%;
         --secondary: 240 4.8% 95.9%;
         --secondary-foreground: 240 5.9% 10%;
@@ -81,6 +81,10 @@
         --sidebar-border: 240 3.7% 15.9%;
         --sidebar-ring: 217.2 91.2% 59.8%;
     }
+}
+
+.hover-scale {
+    @apply cursor-pointer hover:scale-105 duration-200 transform transition ease-in-out;
 }
 
 @layer base {

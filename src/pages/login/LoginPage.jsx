@@ -6,8 +6,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Link } from 'react-router';
-import Footer from '../../components/common/Footer';
-import Logo from '../../components/common/Logo';
+import Footer from '../../components/common/footer/Footer';
+import Logo from '../../components/common/logo/Logo';
 
 export default function LoginPage() {
     const [step, setStep] = useState('email');
