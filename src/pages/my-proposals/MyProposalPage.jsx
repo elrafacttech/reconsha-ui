@@ -18,6 +18,21 @@ const activeProposals = [
     },
 ];
 
+const referredProposals = [
+    {
+        id: '3',
+        title: 'Develop a Scalable API for E-Commerce Application',
+        initiatedDate: 'Nov 5, 2024',
+        timeAgo: '2 weeks ago',
+    },
+    {
+        id: '4',
+        title: 'Experienced Backend Developers Needed for Innovative Project',
+        initiatedDate: 'Nov 4, 2024',
+        timeAgo: '2 weeks ago',
+    },
+];
+
 const archivedProposals = [
     {
         id: '3',
@@ -54,11 +69,19 @@ export default function MyProposalsPage() {
                 />
             )}
 
+            {activeTab === 'referrals' && (
+                <ProposalList
+                    title="Referred proposals"
+                    proposals={referredProposals}
+                    count={3}
+                />
+            )}
+
             {activeTab === 'archived' && (
                 <ProposalList
                     title="Archived proposals"
                     proposals={archivedProposals}
-                    count={305}
+                    count={3}
                 />
             )}
 

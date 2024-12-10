@@ -10,6 +10,7 @@ import BuyTagsPage from './pages/buy-tags/BuyTagsPage';
 import MembershipPlanPage from './pages/membership-plan/MembershipPlanPage';
 import NotificationsPage from './pages/notification/NotificationPage';
 import MessagesPage from './pages/messages/MessagesPage';
+import SettingsRoutes from './routes/SettingsRoutes';
 
 function MainLayout() {
     return (
@@ -30,8 +31,16 @@ function App() {
                 <Route path="/*" element={<AuthRoutes />} />
 
                 <Route element={<MainLayout />}>
-                    <Route path="/" element={<div className='min-h-[60vh] text-center flex items-center justify-center'>Dashboard</div>} />
+                    <Route
+                        path="/"
+                        element={
+                            <div className="min-h-[60vh] text-center flex items-center justify-center">
+                                Dashboard
+                            </div>
+                        }
+                    />
                     <Route path="resource/*" element={<ResourceRoutes />} />
+                    <Route path="settings/*" element={<SettingsRoutes />} />
                     <Route
                         path="finances/billings"
                         element={<BillingsPage />}
@@ -47,7 +56,7 @@ function App() {
                         path="membership/plan"
                         element={<MembershipPlanPage />}
                     />
-                    
+
                     <Route
                         path="notifications"
                         element={<NotificationsPage />}

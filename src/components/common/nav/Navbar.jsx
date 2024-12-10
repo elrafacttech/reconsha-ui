@@ -63,9 +63,9 @@ export default function Navbar() {
             label: 'Resource Details',
             link: '/resource',
             subLink: [
-                { label: 'Your active resources', link: '/active' },
+                { label: 'Your active resources ✔️', link: '' },
                 {
-                    label: 'Resource history ✔️',
+                    label: 'Resource history',
                     link: '',
                 },
             ],
@@ -207,17 +207,19 @@ export default function Navbar() {
                             <SelectContent>
                                 <SelectGroup>
                                     <SelectItem value="resources">
-                                        <div className="flex items-center gap-2">
-                                            <FileCheck2 className="size-4 text-black" />
-                                            <div className="flex flex-col justify-center">
-                                                <h5 className="text-sm font-medium">
-                                                    Resources
-                                                </h5>
-                                                <p className="text-black text-xs">
-                                                    Find a perfect Resources
-                                                </p>
+                                        <Link to="/resource/all">
+                                            <div className="flex items-center gap-2">
+                                                <FileCheck2 className="size-4 text-black" />
+                                                <div className="flex flex-col justify-center">
+                                                    <h5 className="text-sm font-medium">
+                                                        Resources
+                                                    </h5>
+                                                    <p className="text-black text-xs">
+                                                        Find a perfect Resources
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </SelectItem>
                                 </SelectGroup>
                             </SelectContent>
@@ -286,8 +288,8 @@ export default function Navbar() {
                         </Link>
                         <Link to="/tags/buy">
                             <DropdownMenuItem className="cursor-pointer">
-                            <Tags /> Tags ✔️
-                        </DropdownMenuItem>
+                                <Tags /> Tags ✔️
+                            </DropdownMenuItem>
                         </Link>
                         <DropdownMenuItem>
                             <LayoutDashboard /> Apps and offers
@@ -311,9 +313,11 @@ export default function Navbar() {
                             </DropdownMenuContent>
                         </DropdownMenu>
 
-                        <DropdownMenuItem>
-                            <Settings /> Account Settings
-                        </DropdownMenuItem>
+                        <Link to="/settings/billing">
+                            <DropdownMenuItem className="cursor-pointer">
+                                <Settings /> Account Settings ✔️
+                            </DropdownMenuItem>
+                        </Link>
 
                         <DropdownMenuSeparator />
 

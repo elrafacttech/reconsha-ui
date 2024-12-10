@@ -29,6 +29,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useToggle } from '@/hooks/use-toggle';
 import { Collapsible, CollapsibleContent } from '@/components/ui/collapsible';
+import { PaginationComponent } from '@/components/common/components/PaginationComponent';
 
 export default function ResourcesDashboard() {
     const [isFilterOpen, setFilterOpen] = useToggle();
@@ -361,6 +362,31 @@ export default function ResourcesDashboard() {
                         </div>
                     </CardContent>
                 </Card>
+
+                <div className="flex justify-between items-center w-full">
+                    <div className="flex items-center gap-2 w-full">
+                        <span className="text-sm text-muted-foreground">
+                            Resource Per Page:
+                        </span>
+                        <Select value="10">
+                            <SelectTrigger className="w-[80px]">
+                                <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {[10, 20, 30, 40, 50].map((size) => (
+                                    <SelectItem
+                                        key={size}
+                                        value={size.toString()}
+                                    >
+                                        {size}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
+
+                    <PaginationComponent />
+                </div>
             </div>
         </div>
     );

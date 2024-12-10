@@ -21,8 +21,7 @@ export default function ForgotPasswordPage() {
                                 </h1>
                                 <p className="">
                                     Enter the email address or username
-                                    associated with your <span className="font-kanit">                                      
-                                    WorkRiches</span> account.
+                                    associated with your Reconsha account.
                                 </p>
                             </div>
 

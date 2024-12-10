@@ -24,16 +24,16 @@ export default function OnboardingPage() {
 
     const navigate = useNavigate();
     return (
-        <div className="min-h-screen w-full px-4 sm:px-6 md:px-8 mx-auto">
+        <div className="min-h-screen w-full mx-auto">
             <Logo />
 
             <div className="max-w-3xl mx-auto text-center space-y-12">
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-normal tracking-tight">
+                <h1 className="text-2xl md:text-3xl font-normal tracking-tight">
                     Join as a Resource Provider or Resource Finder
                 </h1>
 
                 <RadioGroup
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+                    className="grid md:grid-cols-2 gap-6"
                     value={userType}
                     onValueChange={setUserType}
                 >
@@ -46,7 +46,7 @@ export default function OnboardingPage() {
                             />
                             <Label
                                 htmlFor={id}
-                                className={`flex flex-col items-center sm:items-start justify-center p-6 sm:p-8 border rounded-lg cursor-pointer transition-colors relative ${
+                                className={`flex flex-col items-start justify-center p-8 border rounded-lg cursor-pointer transition-colors relative ${
                                     userType === id
                                         ? 'border-primary'
                                         : 'hover:border-primary/50'
@@ -64,9 +64,9 @@ export default function OnboardingPage() {
                                         <span className="w-3 h-3 bg-primary border border-white rounded-full"></span>
                                     )}
                                 </div>
-                                <Icon className="w-10 sm:w-12 h-10 sm:h-12 mb-4" />
+                                <Icon className="w-12 h-12 mb-4" />
                                 {label.map((text, index) => (
-                                    <span key={index} className="text-base sm:text-xl md:text-2xl">
+                                    <span key={index} className="text-2xl">
                                         {text}
                                     </span>
                                 ))}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { PaginationComponent } from '@/components/common/components/PaginationComponent';
 
 export function ProposalList({ title, proposals, count }) {
     return (
@@ -49,6 +50,10 @@ export function ProposalList({ title, proposals, count }) {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="pt-5">
+                    <PaginationComponent />
                 </div>
             </CardContent>
         </Card>
