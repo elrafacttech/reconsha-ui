@@ -100,7 +100,7 @@ export default function Navbar() {
     ];
 
     return (
-        <header className="sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-background px-4 md:px-6 z-20">
+        <header className="sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-background px-4 md:px-6 xl:px-0 2xl:px-0 z-20">
             <div className="flex items-center gap-4">
                 <Logo />
                 <nav className="hidden xl:flex flex-col gap-6 text-lg font-medium lg:flex-row lg:items-center lg:gap-5 lg:text-sm">
@@ -167,7 +167,7 @@ export default function Navbar() {
                         <Input
                             type="search"
                             placeholder="Search"
-                            className="pl-8 w-[300px] lg:w-[400px] border-none outline-none"
+                            className="pl-8 w-max border-none outline-none"
                         />
                     </div>
                 </form>
