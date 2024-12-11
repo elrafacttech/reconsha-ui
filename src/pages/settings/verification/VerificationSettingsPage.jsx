@@ -44,9 +44,8 @@ export default function VerificationSettingsPage() {
                         variant="secondary"
                         className="bg-muted-foreground/20 border-none p-6"
                     >
-                        <AlertDescription className="text-teal-900 font-medium flex gap-5">
+                        <AlertDescription className="text-teal-900 font-medium md:flex-row flex-col items-center md:items-start flex gap-5">
                             <ShieldCheck className="size-10 text-teal-900" />
-
                             <span>
                                 We encrypt your data and will securely share it
                                 with our ID verification partner and any

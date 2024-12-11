@@ -18,14 +18,18 @@ export default function ContactInfoSettingsPage() {
     const [editingLocation, setEditingLocation] = useState(false);
 
     return (
-        <div className="container">
-            <h1 className="text-3xl font-medium mb-8">Contact info</h1>
+        <div className="container mx-auto px-4 py-8">
+            <h1 className="text-2xl sm:text-3xl font-medium mb-6 sm:mb-8">
+                Contact info
+            </h1>
 
-            <div className="space-y-6">
+            <div className="space-y-6 sm:space-y-8">
                 <Card>
                     <CardContent className="pt-6">
                         <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-xl font-medium">Account</h2>
+                            <h2 className="text-lg sm:text-xl font-medium">
+                                Account
+                            </h2>
                             {!editingAccount && (
                                 <Button
                                     variant="outline"
@@ -39,11 +43,11 @@ export default function ContactInfoSettingsPage() {
                         </div>
 
                         {editingAccount ? (
-                            <form className="space-y-4">
+                            <form className="space-y-4 sm:space-y-6">
                                 <div className="text-sm text-primary">
                                     <Link
-                                        className="underline text-primary hover:text-primary/90 flex items-center gap-2"
                                         to="/policy/name-changes"
+                                        className="underline text-primary hover:text-primary/90 flex items-center gap-2"
                                     >
                                         <BriefcaseBusiness className="size-3" />{' '}
                                         Read our policy on name changes
@@ -80,10 +84,10 @@ export default function ContactInfoSettingsPage() {
                                     />
                                 </div>
 
-                                <div className="flex gap-2">
+                                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                                     <Button
                                         type="submit"
-                                        className="rounded-xl"
+                                        className="rounded-xl w-full sm:w-auto"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             setEditingAccount(false);
@@ -93,7 +97,7 @@ export default function ContactInfoSettingsPage() {
                                     </Button>
                                     <Button
                                         variant="ghost"
-                                        className="text-primary hover:text-primary/90"
+                                        className="text-primary hover:text-primary/90 w-full sm:w-auto"
                                         onClick={() => setEditingAccount(false)}
                                     >
                                         Cancel
@@ -102,23 +106,23 @@ export default function ContactInfoSettingsPage() {
                             </form>
                         ) : (
                             <div className="space-y-4">
-                                <p className="flex flex-col gap-2">
-                                    <span className="text-muted-foreground">
+                                <p className="flex flex-col gap-1">
+                                    <span className="text-sm text-muted-foreground">
                                         User ID
                                     </span>
-                                    094972b6
+                                    <span>094972b6</span>
                                 </p>
-                                <p className="flex flex-col gap-2">
-                                    <span className="text-muted-foreground">
+                                <p className="flex flex-col gap-1">
+                                    <span className="text-sm text-muted-foreground">
                                         Name
                                     </span>
-                                    Raghu Basuvaraj
+                                    <span>Raghu Basuvaraj</span>
                                 </p>
-                                <p className="flex flex-col gap-2">
-                                    <span className="text-muted-foreground">
+                                <p className="flex flex-col gap-1">
+                                    <span className="text-sm text-muted-foreground">
                                         Email
                                     </span>
-                                    m******@gmail.com
+                                    <span>m******@gmail.com</span>
                                 </p>
                                 <Button
                                     variant="link"
@@ -134,7 +138,9 @@ export default function ContactInfoSettingsPage() {
                 <Card>
                     <CardContent className="pt-6">
                         <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-xl font-medium">Location</h2>
+                            <h2 className="text-lg sm:text-xl font-medium">
+                                Location
+                            </h2>
                             {!editingLocation && (
                                 <Button
                                     variant="outline"
@@ -158,8 +164,14 @@ export default function ContactInfoSettingsPage() {
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectItem value="utc+5:30">
-                                                    UTC+05:30 Mumbai, Kolkata,
-                                                    Chennai, New Delhi
+                                                    <span className="hidden md:block">
+                                                        UTC+05:30 Mumbai,
+                                                        Kolkata, Chennai, New
+                                                        Delhi
+                                                    </span>
+                                                    <span className="md:hidden">
+                                                        UTC+05:30 Mumbai
+                                                    </span>
                                                 </SelectItem>
                                             </SelectContent>
                                         </Select>
@@ -186,7 +198,7 @@ export default function ContactInfoSettingsPage() {
                                     clients.{' '}
                                     <Link
                                         to="/learn-more"
-                                        className="text-primary"
+                                        className="text-primary hover:underline"
                                     >
                                         Learn more
                                     </Link>
@@ -234,15 +246,18 @@ export default function ContactInfoSettingsPage() {
                                                     </SelectItem>
                                                 </SelectContent>
                                             </Select>
-                                            <Input defaultValue="9600363627" />
+                                            <Input
+                                                defaultValue="9600363627"
+                                                className="flex-1"
+                                            />
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="flex gap-2">
+                                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                                     <Button
                                         type="submit"
-                                        className="rounded-xl"
+                                        className="rounded-xl w-full sm:w-auto"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             setEditingLocation(false);
@@ -252,7 +267,7 @@ export default function ContactInfoSettingsPage() {
                                     </Button>
                                     <Button
                                         variant="ghost"
-                                        className="text-primary hover:text-primary/90"
+                                        className="text-primary hover:text-primary/90 w-full sm:w-auto"
                                         onClick={() =>
                                             setEditingLocation(false)
                                         }
@@ -263,17 +278,17 @@ export default function ContactInfoSettingsPage() {
                             </form>
                         ) : (
                             <div className="space-y-4">
-                                <div className="space-y-2">
+                                <div className="space-y-1">
                                     <h3 className="font-medium">Time Zone</h3>
-                                    <p className="text-muted-foreground">
+                                    <p className="text-sm text-muted-foreground">
                                         UTC+05:30 Mumbai, Kolkata, Chennai, New
                                         Delhi
                                     </p>
                                 </div>
 
-                                <div className="space-y-2">
+                                <div className="space-y-1">
                                     <h3 className="font-medium">Address</h3>
-                                    <p className="text-muted-foreground">
+                                    <p className="text-sm text-muted-foreground">
                                         46 Kuppusamy Street
                                         <br />
                                         Coimbatore, TN 641109
@@ -282,9 +297,9 @@ export default function ContactInfoSettingsPage() {
                                     </p>
                                 </div>
 
-                                <div className="space-y-2">
+                                <div className="space-y-1">
                                     <h3 className="font-medium">Phone</h3>
-                                    <p className="text-muted-foreground">
+                                    <p className="text-sm text-muted-foreground">
                                         +91 9600363627
                                     </p>
                                 </div>

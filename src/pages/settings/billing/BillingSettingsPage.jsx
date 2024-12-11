@@ -88,8 +88,7 @@ export default function BillingSettingsPage() {
                                 className="text-primary hover:text-primary/90"
                                 variant="ghost"
                             >
-                                <Plus className='size-6' /> Add a billing
-                                method
+                                <Plus className="size-6" /> Add a billing method
                             </Button>
                         </div>
                     )}
@@ -150,7 +149,7 @@ export default function BillingSettingsPage() {
                                                     />
                                                     <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
                                                         <Lock className="h-4 w-4 text-muted-foreground" />
-                                                        <span className="text-sm text-muted-foreground">
+                                                        <span className="text-sm text-muted-foreground hidden md:block">
                                                             Securely stored
                                                         </span>
                                                     </div>
@@ -291,7 +290,9 @@ export default function BillingSettingsPage() {
                                                     <div>
                                                         <Label>
                                                             Postal code
-                                                            (optional)
+                                                            <span className="hidden md:block">
+                                                                (optional)
+                                                            </span>
                                                         </Label>
                                                         <Input placeholder="641109" />
                                                     </div>

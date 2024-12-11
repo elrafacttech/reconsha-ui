@@ -11,6 +11,7 @@ import MembershipPlanPage from './pages/membership-plan/MembershipPlanPage';
 import NotificationsPage from './pages/notification/NotificationPage';
 import MessagesPage from './pages/messages/MessagesPage';
 import SettingsRoutes from './routes/SettingsRoutes';
+import ProviderRoutes from './routes/ProviderRoutes';
 
 function MainLayout() {
     return (
@@ -26,10 +27,10 @@ function MainLayout() {
 
 function App() {
     return (
-        <div className="font-poppins">
+        <div>
             <Routes>
                 <Route path="/*" element={<AuthRoutes />} />
-
+                <Route path="provider/*" element={<ProviderRoutes />} />
                 <Route element={<MainLayout />}>
                     <Route
                         path="/"

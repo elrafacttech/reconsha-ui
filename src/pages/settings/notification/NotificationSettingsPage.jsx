@@ -46,7 +46,7 @@ export default function NotificationSettingsPage() {
 
                     <div className="space-y-6">
                         <div className="space-y-4">
-                            <h3 className="text-lg">
+                            <h3 className="text-md md:text-lg">
                                 Send an email with unread activity for:
                             </h3>
 

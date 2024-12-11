@@ -3,9 +3,9 @@ import {
     Search,
     Download,
     MoreHorizontal,
-    Calendar,
     Settings2,
     CircleX,
+    CalendarIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -30,9 +30,20 @@ import {
 import { useToggle } from '@/hooks/use-toggle';
 import { Collapsible, CollapsibleContent } from '@/components/ui/collapsible';
 import { PaginationComponent } from '@/components/common/components/PaginationComponent';
+import { Calendar } from '@/components/ui/calendar';
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
+import { format } from 'date-fns';
 
 export default function ResourcesDashboard() {
     const [isFilterOpen, setFilterOpen] = useToggle();
+
+    const [startDate, setStartDate] = React.useState();
+    const [endDate, setEndDate] = React.useState();
 
     return (
         <div className="container max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 space-y-8">
@@ -229,11 +240,33 @@ export default function ResourcesDashboard() {
                                     Contract start dates
                                 </h3>
                                 <div className="relative">
-                                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                                    <Input
-                                        placeholder="All start dates"
-                                        className="pl-10"
-                                    />
+                                    <Popover>
+                                        <PopoverTrigger asChild>
+                                            <Button
+                                                variant={'outline'}
+                                                className={cn(
+                                                    'w-[200px] justify-start text-left font-normal',
+                                                    !startDate &&
+                                                        'text-muted-foreground'
+                                                )}
+                                            >
+                                                <CalendarIcon />
+                                                {startDate ? (
+                                                    format(startDate, 'PPP')
+                                                ) : (
+                                                    <span>All start dates</span>
+                                                )}
+                                            </Button>
+                                        </PopoverTrigger>
+                                        <PopoverContent className="w-auto p-0">
+                                            <Calendar
+                                                mode="single"
+                                                selected={startDate}
+                                                onSelect={setStartDate}
+                                                initialFocus
+                                            />
+                                        </PopoverContent>
+                                    </Popover>
                                 </div>
                             </div>
 
@@ -242,11 +275,33 @@ export default function ResourcesDashboard() {
                                     Contract end dates
                                 </h3>
                                 <div className="relative">
-                                    <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                                    <Input
-                                        placeholder="All end dates"
-                                        className="pl-10"
-                                    />
+                                    <Popover>
+                                        <PopoverTrigger asChild>
+                                            <Button
+                                                variant={'outline'}
+                                                className={cn(
+                                                    'w-[200px] justify-start text-left font-normal',
+                                                    !endDate &&
+                                                        'text-muted-foreground'
+                                                )}
+                                            >
+                                                <CalendarIcon />
+                                                {endDate ? (
+                                                    format(endDate, 'PPP')
+                                                ) : (
+                                                    <span>All end dates</span>
+                                                )}
+                                            </Button>
+                                        </PopoverTrigger>
+                                        <PopoverContent className="w-auto p-0">
+                                            <Calendar
+                                                mode="single"
+                                                selected={endDate}
+                                                onSelect={setEndDate}
+                                                initialFocus
+                                            />
+                                        </PopoverContent>
+                                    </Popover>
                                 </div>
                             </div>
                         </div>
@@ -363,7 +418,7 @@ export default function ResourcesDashboard() {
                     </CardContent>
                 </Card>
 
-                <div className="flex justify-between items-center w-full">
+                <div className="flex md:justify-between flex-col md:flex-row gap-4 items-center w-full">
                     <div className="flex items-center gap-2 w-full">
                         <span className="text-sm text-muted-foreground">
                             Resource Per Page:

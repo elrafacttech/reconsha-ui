@@ -109,7 +109,6 @@ export default function LoginPage() {
                                         <Input
                                             type="password"
                                             placeholder="Password"
-                                            value=""
                                             className="pl-10"
                                         />
                                     </div>

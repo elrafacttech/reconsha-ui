@@ -17,8 +17,8 @@ export default function MainFooter() {
     };
 
     return (
-        <footer className="bg-white text-white px-10 pt-10 relative">
-            <div className="bg-black p-10 rounded-t-xl">
+        <footer className="lg:px-10 pt-10 relative">
+            <div className="bg-black text-white p-10 lg:rounded-t-xl">
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div className="space-y-4">

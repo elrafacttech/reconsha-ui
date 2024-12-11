@@ -18,11 +18,11 @@ export default function ProfilePage() {
     );
 
     return (
-        <div className="min-h-screen">
-            <Card className="max-w-7xl mx-auto my-8">
-                <div className="py-7">
-                    <div className="flex items-start gap-5 p-7 border-b">
-                        <div className="relative">
+        <div className="min-h-screen p-4 sm:p-6 md:p-8">
+            <Card className="max-w-7xl mx-auto my-4 sm:my-8">
+                <div className="py-4 sm:py-7">
+                    <div className="flex flex-col sm:flex-row items-start gap-5 p-4 sm:p-7 border-b">
+                        <div className="relative self-center sm:self-start">
                             <img
                                 src="https://via.placeholder.com/100x100.png?text=Profile"
                                 alt="Profile"
@@ -30,7 +30,6 @@ export default function ProfilePage() {
                                 height={100}
                                 className="rounded-full"
                             />
-
                             <div className="absolute rounded-full bg-primary h-3 w-3 top-2 left-2" />
                             <Button
                                 size="icon"
@@ -41,67 +40,62 @@ export default function ProfilePage() {
                                 <Pencil className="h-4 w-4 text-primary" />
                             </Button>
                         </div>
-                        <div className="flex-1">
-                            <div className="flex items-center justify-between">
+                        <div className="flex-1 w-full">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
                                 <div className="flex items-center gap-2">
-                                    <h1 className="text-3xl font-semibold">
+                                    <h1 className="text-2xl sm:text-3xl font-semibold">
                                         {title}
                                     </h1>
-                                    <BadgeCheck className="size-7 text-white fill-blue-600" />
+                                    <BadgeCheck className="size-6 sm:size-7 text-white fill-blue-600" />
                                 </div>
-                                <div className="flex gap-2">
+                                <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                                     <Button
                                         variant="outline"
-                                        onClick={() =>
-                                            window.open('/public-view')
-                                        }
-                                        className="border-primary rounded-xl text-primary hover:text-primary/90"
+                                        onClick={() => window.open('/public-view')}
+                                        className="border-primary rounded-xl text-primary hover:text-primary/90 w-full sm:w-auto"
                                     >
                                         See public view
                                     </Button>
-                                    <Button className="rounded-xl">
+                                    <Button className="rounded-xl w-full sm:w-auto">
                                         Profile settings
                                     </Button>
                                 </div>
                             </div>
                             <div className="mt-2 text-gray-600 flex items-center gap-2">
                                 <MapPin className="size-4" />
-                                <span>
+                                <span className="text-sm sm:text-base">
                                     Coimbatore, India — 7:47 pm local time
                                 </span>
                             </div>
-
-                            <div className="w-full flex justify-end">
+                            <div className="w-full flex justify-end mt-4 sm:mt-0">
                                 <Button
                                     variant="ghost"
-                                    className="gap-2 text-base text-primary hover:text-primary/90"
+                                    className="gap-2 text-sm sm:text-base text-primary hover:text-primary/90"
                                     onClick={() => setIsShareOpen(true)}
                                 >
                                     Share
-                                    <Share className="size-6" />
+                                    <Share className="size-5 sm:size-6" />
                                 </Button>
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex justify-between">
-                        <div className="grid grid-cols-2 gap-4 w-2/5 p-7 border-r">
+                    <div className="flex flex-col sm:flex-row justify-between">
+                        <div className="grid grid-cols-2 gap-4 w-full sm:w-2/5 p-4 sm:p-7 border-b sm:border-b-0 sm:border-r">
                             <div>
-                                <div className="text-2xl">$100+</div>
-                                <div className="text-gray-600">Total Spend</div>
+                                <div className="text-xl sm:text-2xl">$100+</div>
+                                <div className="text-sm sm:text-base text-gray-600">Total Spend</div>
                             </div>
                             <div>
-                                <div className="text-2xl">1</div>
-                                <div className="text-gray-600">
-                                    Total Resources
-                                </div>
+                                <div className="text-xl sm:text-2xl">1</div>
+                                <div className="text-sm sm:text-base text-gray-600">Total Resources</div>
                             </div>
                         </div>
 
-                        <div className="w-full p-7 space-y-5">
+                        <div className="w-full p-4 sm:p-7 space-y-4 sm:space-y-5">
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center justify-start gap-3">
-                                    <h2 className="text-xl font-semibold">
+                                    <h2 className="text-lg sm:text-xl font-semibold">
                                         {title}
                                     </h2>
                                     <Button
@@ -124,7 +118,7 @@ export default function ProfilePage() {
                             </div>
 
                             <div className="flex justify-start gap-2 w-full">
-                                <p className="text-gray-600 whitespace-pre-wrap w-full">
+                                <p className="text-sm sm:text-base text-gray-600 whitespace-pre-wrap w-full">
                                     {overview}
                                 </p>
 
@@ -138,7 +132,7 @@ export default function ProfilePage() {
                                 </Button>
                             </div>
 
-                            <span className="text-primary hover:underline cursor-pointer">
+                            <span className="text-primary hover:underline cursor-pointer text-sm sm:text-base">
                                 more
                             </span>
                         </div>
@@ -166,3 +160,4 @@ export default function ProfilePage() {
         </div>
     );
 }
+
